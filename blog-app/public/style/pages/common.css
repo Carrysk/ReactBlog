@@ -1,0 +1,24 @@
+/**
+ * 通用js
+ */
+
+body {
+    background: #f6f6f6;
+}
+
+.comm-main {
+    margin-top: 0.5rem;
+}
+
+.comm-left,
+.comm-box {
+    background: #fff;
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+    border-bottom: 1px solid #eee;
+}
+
+
+.comm-box {
+    margin-left: .5rem;
+}
