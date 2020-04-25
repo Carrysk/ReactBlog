@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
-import { BrowserRouter as Router, Switch } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import renderRoutes from '../config/renderRoutes'
 import routers from '../router'
 import axios from 'axios'
 import SevicePath from '../config/apiUrl'
 
 import { connect } from 'react-redux'
-import { CHANGE_LOGIN} from '../store/actionTypes'
+import { CHANGE_LOGIN } from '../store/actionTypes'
+import '../static/css/base.css'
 
 function Main(props) {
 
@@ -18,15 +19,18 @@ function Main(props) {
     const getIsLogin = () => {
         axios(SevicePath.isLogin).then(res => {
             props.changeLogin(res && res.data && res.data.success)
+        }).catch(()=>{
+            props.changeLogin(false)
         })
     }
 
     return (
-        <Router>
-            <Switch>
+        <div>
+            <Router>
                 {renderRoutes(routers, props.isLogin)}
-            </Switch>
-        </Router>
+            </Router>
+        </div>
+
     )
 }
 
@@ -36,9 +40,9 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchTiProps = (dispatch)=> {
+const mapDispatchTiProps = (dispatch) => {
     return {
-        changeLogin: isLogin =>{
+        changeLogin: isLogin => {
             let action = {
                 type: CHANGE_LOGIN,
                 isLogin

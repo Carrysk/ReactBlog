@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import { Layout, Menu, Breadcrumb } from 'antd';
+import Logo from '../components/Logo'
 import {
     DesktopOutlined,
     PieChartOutlined,
@@ -31,22 +32,16 @@ function AdminIndex(props) {
         }
     }
 
-    const isLogin = () => {
-        Axios('')
-    }
-
     return (
         <Layout style={{ minHeight: '100vh' }}>
             <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
-                <div className="logo" />
+                <div className="logo" >
+                    <Logo />
+                </div>
                 <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
                     <Menu.Item key="1">
                         <PieChartOutlined />
                         <span>工作台</span>
-                    </Menu.Item>
-                    <Menu.Item key="2">
-                        <DesktopOutlined />
-                        <span>添加文章</span>
                     </Menu.Item>
                     <SubMenu
                         key="sub1"
@@ -76,7 +71,7 @@ function AdminIndex(props) {
                     </Breadcrumb>
                     <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
                        <Router key={props.location.key}>
-                           <Route path="/index/" exact component={AddArticle} ></Route>
+                           <Route path="/index/" exact component={ArticleList} ></Route>
                            <Route path="/index/add/" exact component={AddArticle} ></Route>
                            <Route path="/index/add/:id" exact component={AddArticle} ></Route>
                            <Route path="/index/list/" component={ArticleList} ></Route>

@@ -11,24 +11,28 @@ import AdminIndex from './Pages/AdminIndex'
 
 const routers = [{
         path: '/',
+        key: '',
         component: Login,
         exact: true,
-        requiresAuth: false,
+        requireAuth: false,
     }, {
         path: '/login',
+        key: 'login',
         component: Login,
         exact: true,
-        requiresAuth: false,
+        requireAuth: false,
     }, {
         path: '/index',
+        key: 'index',
         component: AdminIndex,
         exact: false,
-        requiresAuth: false,
+        requireAuth: true,
     }, {
         path: '*',
+        key: '*',
         component: Login,
         exact: false,
-        requiresAuth: false,
+        requireAuth: false,
     }
 ]
 
