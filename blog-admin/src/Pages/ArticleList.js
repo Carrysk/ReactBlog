@@ -28,7 +28,7 @@ function ArticleList(props) {
     }
 
     const modifyArticle = id=> {
-        props.history.push('add/' + id);
+        props.history.push('/index/add/' + id);
         return;
     }
 

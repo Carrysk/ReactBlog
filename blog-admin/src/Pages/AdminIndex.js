@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Layout, Menu, Breadcrumb } from 'antd';
 import Logo from '../components/Logo'
 import {
@@ -25,9 +25,9 @@ function AdminIndex(props) {
     const onCollapse = collapsed => setCollapsed(collapsed);
 
     const handleClickArticle = e => {
-        if(e.key==='add') {
+        if (e.key === 'add') {
             props.history.push('/index/add')
-        } else if (e.key ==='list') {
+        } else if (e.key === 'list') {
             props.history.push('/index/list')
         }
     }
@@ -70,15 +70,15 @@ function AdminIndex(props) {
                         <Breadcrumb.Item>工作台</Breadcrumb.Item>
                     </Breadcrumb>
                     <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-                       <Router key={props.location.key}>
-                           <Route path="/index/" exact component={ArticleList} ></Route>
-                           <Route path="/index/add/" exact component={AddArticle} ></Route>
-                           <Route path="/index/add/:id" exact component={AddArticle} ></Route>
-                           <Route path="/index/list/" component={ArticleList} ></Route>
-                       </Router>
-            </div>
+                        <Router key={props.location.key}>
+                            <Route path="/index/" exact component={ArticleList} ></Route>
+                            <Route path="/index/add/" exact component={AddArticle} ></Route>
+                            <Route path="/index/add/:id" exact component={AddArticle} ></Route>
+                            <Route path="/index/list/" component={ArticleList} ></Route>
+                        </Router>
+                    </div>
                 </Content>
-                <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+                <Footer style={{ textAlign: 'center' }}>BLOG ©2020 Create By Carrysk</Footer>
             </Layout>
         </Layout>
     );
