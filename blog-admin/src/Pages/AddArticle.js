@@ -3,7 +3,7 @@ import marked from 'marked'
 import { Row, Col, Input, Button, Select, DatePicker, message } from 'antd'
 import Axios from 'axios'
 import servicePath from '../config/apiUrl'
-import '../static/css/AddArticle.css'
+import '../static/css/pages/AddArticle.css'
 const { TextArea } = Input
 const { Option } = Select
 

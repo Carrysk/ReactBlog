@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { List, Row, Col, Modal, message, Button } from 'antd'
 import Axios from 'axios'
 import servicePath from '../config/apiUrl'
-import '../static/css/ArticleList.css'
+import '../static/css/pages/ArticleList.css'
 
 const { confirm } = Modal;
 

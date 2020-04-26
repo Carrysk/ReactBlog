@@ -14,5 +14,6 @@ module.exports = app => {
   router.post('/admin/updatearticle', adminauth, controller.admin.admin.updateArticle); // 修改文章信息
   router.get('/admin/getarticlelist', adminauth, controller.admin.admin.getArticleList); // 获取文章列表
   router.get('/admin/delarticlebyid/:id', adminauth, controller.admin.admin.delArticleById); // 删除文章
-  router.get('/admin/getarticlebyid/:id', adminauth, controller.admin.admin.getArticleById);
+  router.get('/admin/getarticlebyid/:id', adminauth, controller.admin.admin.getArticleById); // 获取文章信息
+  router.get('/admin/logout', adminauth, controller.admin.admin.logout); // 退出
 };

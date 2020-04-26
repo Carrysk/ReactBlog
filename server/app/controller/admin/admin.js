@@ -105,7 +105,16 @@ class AdminController extends Controller {
         data: {},
       };
     }
+  }
 
+  async logout() {
+    this.ctx.session.openId = '';
+    this.ctx.body = {
+      data: {
+        success: true,
+        message: '退出成功',
+      },
+    };
   }
 }
 

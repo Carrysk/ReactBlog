@@ -1,16 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Card, Input, Button, Spin, message } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import { connect } from 'react-redux'
 import Axios from 'axios'
 import servicePath from '../config/apiUrl'
 import 'antd/dist/antd.css'
-import '../static/css/Login.css'
+import '../static/css/pages/Login.css'
 
 function Login(props) {
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const [isLoading, setIsLoading] = useState(false)
+
+    // 获取登录状态 如果登录 自动跳转到首页
+    useEffect( ()=>{
+        getLoginState()
+    }, [])
 
     // 登录
     const loginBtnClick = () => {
@@ -53,6 +58,18 @@ function Login(props) {
         }
     }
 
+    // 获取是否登录
+    const getLoginState = () => {
+        Axios(servicePath.isLogin, {
+            withCredentials: true
+        }).then(res => {
+            const isLogin = res && res.data && res.data.success;
+            props.changeLogin(isLogin)
+            if (isLogin) {
+                props.history.push('/index')
+            }
+        })
+    }
     return (
         <div className="Login-div">
             <Spin tip="loading..." spinning={isLoading}>

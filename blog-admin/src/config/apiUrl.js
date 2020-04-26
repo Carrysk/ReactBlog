@@ -9,6 +9,7 @@ let servicePath = {
     getArticleList: host + 'getarticlelist', // 获取文章列表
     delArticleById: host + 'delarticlebyid/', // 删除文章接口
     getAritcleById: host + 'getarticlebyid/', // 根据文章id 获取文章
+    logout: host + 'logout', // 退出登录
 }
 
 module.exports = servicePath;

@@ -8,6 +8,7 @@
 
 import Login from './Pages/Login'
 import AdminIndex from './Pages/AdminIndex'
+import NotFound from './Pages/NotFound'
 
 const routers = [{
         path: '/',
@@ -30,7 +31,7 @@ const routers = [{
     }, {
         path: '*',
         key: '*',
-        component: Login,
+        component: NotFound,
         exact: false,
         requireAuth: false,
     }

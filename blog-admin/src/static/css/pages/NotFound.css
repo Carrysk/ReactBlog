@@ -1,0 +1,25 @@
+.not-found {
+    margin-top: 100px;
+    font-size: 2rem;
+    text-align: center;
+    height: 100%;
+    line-height: 100%;
+}
+
+.not-found .not-found-p {
+    font-size: 1rem;
+}
+
+.not-found .not-found-p>span {
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.not-found .not-found-p .not-found-timer {
+    color: blue;
+}
+
+.not-found .not-found-p .not-found-home {
+    cursor: pointer;
+    color: skyblue;
+}
