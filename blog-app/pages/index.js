@@ -62,7 +62,7 @@ const Home = (list) => {
                                             <span><Icon type="folder" /> {item.typeName}</span>
                                             <span><Icon type="fire" /> {item.view_count}人</span>
                                         </div>
-                                        <div className="list-context" dangerouslySetInnerHTML={{ _html: marked('' + item.introduce) }}></div>
+                                        <div className="list-context" dangerouslySetInnerHTML={{ __html: marked('' + item.introduce) }}></div>
                                     </a>
                                 </Link>
                             </div>

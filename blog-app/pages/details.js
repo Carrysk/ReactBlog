@@ -38,7 +38,7 @@ const Details = (props) => {
         }
     })
 
-    let html = marked(props.data.content);
+    let html = marked(props.data.content + '')
 
     return (
         <div>
@@ -75,7 +75,7 @@ const Details = (props) => {
                         </div>
 
                         <div className="detailed-content"
-                            dangerouslySetInnerHTML={{ __html: html }}
+                            dangerouslySetInnerHTML={{ __html: marked('' + props.data.content) }}
                         >
 
                         </div>
