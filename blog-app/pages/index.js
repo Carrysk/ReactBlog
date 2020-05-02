@@ -35,7 +35,7 @@ const Home = (list) => {
     return (
         <div>
             <Head>
-                <title>Home</title>
+                <title>BLOG</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header />
@@ -49,7 +49,7 @@ const Home = (list) => {
                     xl={14}
                 >
                     <List
-                        header={<div>火文</div>}
+                        header={<div className="list-index-title">最新博客</div>}
                         itemLayout="vertical"
                         dataSource={listData}
                         renderItem={item => (<List.Item>

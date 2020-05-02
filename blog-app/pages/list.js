@@ -24,7 +24,7 @@ const ListPage = (props) => {
     return (
         <div>
             <Head>
-                <title>List</title>
+                <title>BLOG</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header />

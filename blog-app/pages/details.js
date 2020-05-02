@@ -89,7 +89,7 @@ const Details = (props) => {
                         <div className="detailed-nav comm-box">
                             <div className="nav-title">文章目录</div>
                             <div className="toc-list">
-                                {/* {tocify && tocify.renderToc()} */}
+                                {tocify && tocify.renderToc()}
                             </div>
                         </div>
                     </Affix>

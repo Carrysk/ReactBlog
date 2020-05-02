@@ -8,9 +8,10 @@ import servicePath from '../config/apiUrl'
 
 const Header = () => {
     const [navArray, setNavArray] = useState([]);
+    const router = useRouter();
+    
     useEffect(() => {
         const fetchData = async () => {
-            console.log(servicePath.getTypeInfo)
             const res = await axios(servicePath.getTypeInfo).then(serverInfo => {
                 if (serverInfo.data.data) {
                     return serverInfo.data.data
@@ -21,27 +22,18 @@ const Header = () => {
         fetchData();
     }, [])
 
-    const router = useRouter()
     const changeMenu = e => {
-        var homePage = 'home'
-        if (e.key === homePage) {
-            router.push('/index')
-        } else {
-            router.push('/list?id=' + e.key)
-        }
+        router.push('/list?id=' + e.key)
     }
     return (<>
         <div className="header">
             <Row type="flex" justify="center">
                 <Col xs={24} sm={24} md={10} lg={15} xl={13}>
-                    <span className="header-logo">LOGO</span>
-                    <span className="header-txt">this is a logo</span>
+                    <span className="header-logo" onClick={() => router.push('/')}>BLOG</span>
+                    <span className="header-txt">一些关于Carrysk</span>
                 </Col>
                 <Col xs={0} sm={0} md={14} lg={8} xl={6}>
                     <Menu mode="horizontal" onClick={changeMenu}>
-                        <Menu.Item key="home">
-                            <Icon type="home" />首页
-                            </Menu.Item>
                         {
                             navArray.map(item => (
                                 <Menu.Item key={item.id}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Anchor } from 'antd';
-let last =  require('lodash/last');
-
+let lodash =  require('lodash');
+const last = lodash.last;
 const { Link } = Anchor;
 
 export interface TocItem {
@@ -62,6 +62,9 @@ export default class Tocify {
     };
 
     renderToc(items: TocItem[]) { // 递归 render
+        if (!items) {
+            return null;
+        }
         return items.map(item => (
             <Link key={item.anchor} href={`#${item.anchor}`} title={item.text}>
                 {item.children && this.renderToc(item.children)}
