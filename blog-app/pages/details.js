@@ -1,10 +1,15 @@
 import React, { useState } from "react"
 import Head from "next/head"
-import { Row, Col, Breadcrumb, Icon, Affix } from "antd"
+import { Row, Col, Breadcrumb, Affix } from "antd"
+import {
+    CalendarTwoTone,
+    FolderOpenTwoTone,
+    FireTwoTone
+} from '@ant-design/icons'
 import Header from "../components/Header";
 import Auther from '../components/Auther'
 import Advert from '../components/Advert'
-import Footer from '../components/footer'
+import Footer from '../components/Footer'
 import axios from 'axios'
 import "../public/style/pages/details.css"
 import marked from 'marked'
@@ -16,6 +21,7 @@ import servicePath from '../config/apiUrl'
 
 const Details = (props) => {
     const renderer = new marked.Renderer()
+    const articleData = props.data
 
     // 文章导航
     const tocify = new Tocify();
@@ -39,11 +45,12 @@ const Details = (props) => {
     })
 
     let html = marked(props.data.content + '')
+    let cataLog = tocify && tocify.renderToc();
 
     return (
         <div>
             <Head>
-                <title>Home</title>
+                <title>BLOG</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header />
@@ -61,17 +68,17 @@ const Details = (props) => {
                         <Breadcrumb>
                             <Breadcrumb.Item><a href="/">首页</a></Breadcrumb.Item>
                             <Breadcrumb.Item><a href="/list">视频列表</a></Breadcrumb.Item>
-                            <Breadcrumb.Item>xxxx</Breadcrumb.Item>
+                            <Breadcrumb.Item>{articleData.title}</Breadcrumb.Item>
                         </Breadcrumb>
                     </div>
                     <div>
                         <div className="detailed-title">
-                            练习react啊啊啊啊啊
+                            {articleData.title}
                         </div>
                         <div className="list-icon center">
-                            <span><Icon type="clendar" /> 2020-02-20</span>
-                            <span><Icon type="folder" /> 视频教程</span>
-                            <span><Icon type="fire" /> 1次</span>
+                            <span><CalendarTwoTone /> {articleData.addTime}</span>
+                            <span><FolderOpenTwoTone /> {articleData.typeName}</span>
+                            <span><FireTwoTone /> {articleData.view_count}次</span>
                         </div>
 
                         <div className="detailed-content"
@@ -85,14 +92,18 @@ const Details = (props) => {
                     <Auther />
                     <Advert />
 
-                    <Affix offsetTop={0}>
-                        <div className="detailed-nav comm-box">
-                            <div className="nav-title">文章目录</div>
-                            <div className="toc-list">
-                                {tocify && tocify.renderToc()}
+                    {/* 显示目录导航与否 */}
+                    {
+                        cataLog ? <Affix offsetTop="0" style={{ margin: '10px 0 0 0' }}>
+                            <div className="detailed-nav comm-box">
+                                <div className="nav-title">文章目录</div>
+                                <div className="toc-list">
+                                    {cataLog}
+                                </div>
                             </div>
-                        </div>
-                    </Affix>
+                        </Affix> : null
+                    }
+
                 </Col>
             </Row>
             <Footer />

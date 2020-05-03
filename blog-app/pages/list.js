@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react"
 import Head from "next/head"
-import { Row, Col, List, Icon, Breadcrumb } from "antd"
+import { Row, Col, List, Breadcrumb } from "antd"
+import {
+    CalendarOutlined,
+    FolderOpenOutlined,
+    FireTwoTone
+} from '@ant-design/icons'
 import Header from "../components/Header"
 import Auther from '../components/Auther'
 import Advert from '../components/Advert'
-import Footer from '../components/footer'
+import Footer from '../components/Footer'
 import axios from 'axios'
 import Link from 'next/link'
 import ServerPath from '../config/apiUrl'
@@ -49,7 +54,7 @@ const ListPage = (props) => {
                         </Breadcrumb>
                     </div>
                     <List
-                        header={<div>...</div>}
+                        header={<div className="list-header">{articleType.typeName}</div>}
                         itemLayout="vertical"
                         dataSource={listData}
                         renderItem={item => (<List.Item>
@@ -59,9 +64,9 @@ const ListPage = (props) => {
                                 </Link>
                             </div>
                             <div className="list-icon">
-                                <span><Icon type="calendar" /> {item.addTime}</span>
-                                <span><Icon type="folder" /> {item.typeName}</span>
-                                <span><Icon type="fire" /> {item.view_count}人</span>
+                                <span><CalendarOutlined /> {item.addTime}</span>
+                                <span><FolderOpenOutlined /> {item.typeName}</span>
+                                <span><FireTwoTone /> {item.view_count}人</span>
                             </div>
                             <div className="list-context">{item.context}</div>
                         </List.Item>)}

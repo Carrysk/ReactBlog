@@ -1,16 +1,22 @@
-import React, { useState } from "react"
-import Head from "next/head"
-import { Row, Col, List, Icon } from "antd"
-import Header from "../components/Header"
+import React, { useState } from 'react'
+import Head from 'next/head'
+import { Row, Col, List } from 'antd'
+import {
+    FireTwoTone,
+    CalendarOutlined, 
+    FolderOpenOutlined,
+    FireOutlined,
+} from '@ant-design/icons'
+import Header from '../components/Header'
 import Auther from '../components/Auther'
 import Advert from '../components/Advert'
-import Footer from '../components/footer'
+import Footer from '../components/Footer'
 import Link from 'next/link'
 import marked from 'marked'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/monokai-sublime.css'
 import "../public/style/pages/index.css"
-import axios from "axios"
+import axios from 'axios'
 import servicePath from '../config/apiUrl'
 
 const Home = (list) => {
@@ -49,7 +55,7 @@ const Home = (list) => {
                     xl={14}
                 >
                     <List
-                        header={<div className="list-index-title">最新博客</div>}
+                        header={<div className="list-index-title"><span><FireTwoTone twoToneColor="red"/>&nbsp;&nbsp;</span>最新博客</div>}
                         itemLayout="vertical"
                         dataSource={listData}
                         renderItem={item => (<List.Item>
@@ -58,9 +64,9 @@ const Home = (list) => {
                                     <a>
                                         <div className="list-title">{item.title}</div>
                                         <div className="list-icon">
-                                            <span><Icon type="calendar" /> {item.addTime}</span>
-                                            <span><Icon type="folder" /> {item.typeName}</span>
-                                            <span><Icon type="fire" /> {item.view_count}人</span>
+                                            <span><CalendarOutlined /> {item.addTime}</span>
+                                            <span><FolderOpenOutlined /> {item.typeName}</span>
+                                            <span><FireOutlined /> {item.view_count}人</span>
                                         </div>
                                         <div className="list-context" dangerouslySetInnerHTML={{ __html: marked('' + item.introduce) }}></div>
                                     </a>

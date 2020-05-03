@@ -1,4 +1,7 @@
 .footer-div{
+    position: absolute;
+    width: 100vw;
+    bottom: 0;
     text-align: center;
     background: #fff;
     padding: .5rem;

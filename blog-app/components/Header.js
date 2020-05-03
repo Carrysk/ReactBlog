@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import '../public/style/components/header.css'
 import { useRouter } from 'next/router'
-import { Row, Col, Menu, Icon } from 'antd'
+import { Row, Col, Menu } from 'antd'
 import axios from 'axios'
 import servicePath from '../config/apiUrl'
 
@@ -37,7 +37,6 @@ const Header = () => {
                         {
                             navArray.map(item => (
                                 <Menu.Item key={item.id}>
-                                    <Icon type={item.icon} />
                                     {item.typeName}
                                 </Menu.Item>
                             ))
